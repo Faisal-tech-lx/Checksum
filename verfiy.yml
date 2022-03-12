@@ -1,0 +1,8 @@
+---
+filess:
+- name: /tmp/filea.txt
+  checksum: 648a6a6ffffdaa0badb23b8baf90b6168dd16b3b /tmp/filea.txt
+- name: /tmp/fileb.txt
+  checksum: da39a3ee5e6b4b0d3255bfef95601890afd80709 /tmp/fileb.txt
+- name: /tmp/filec.txt
+  checksum: da39a3ee5e6b4b0d3255bfef95601890afd80709 /tmp/filec.txt

@@ -1,7 +1,8 @@
-files:
--	name:  /tmp/abc1.txt
-checksum: “da39a3ee5e6b4b”  <filename>
--	name: /tmp/abc2/txt
-checksum:  “da39a3eerb6a”      <filename>
--	name: /tmp/abc3.txt
-checksum: “da39a3ee5e6b4b0d”   <filename>
+---
+filess:
+- name: /tmp/abc1.txt
+  checksum: da39a3ee5e6b4b0d3255bfef95601890afd80705 /tmp/abc1.txt
+- name: /tmp/abc2/txt
+  checksum: da39a3ee5e6b4b0d3255bfef95601890afd80709 /tmp/abc2.txt
+- name: /tmp/abc3.txt
+  checksum: da39a3ee5e6b4b0d3255bfef95601890afd80709 /tmp/abc3.txt

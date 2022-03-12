@@ -1,0 +1,24 @@
+---
+- name: RUN Playbook
+  hosts: localhost
+  vars_files: file.yml 
+  tasks:
+  - name: Play for gather stats
+    stat:
+      path: "{{item.name}}"
+    loop: "{{filess}}"
+    register: stat_output
+
+  - debug:
+      msg: "Checksum is PASS: {{item.stat.path}}"
+    when: item.stat.checksum == item.item.checksum.split()[0]
+    loop: "{{stat_output.results}}"
+    loop_control:
+      label: "{{item.stat.path}}"
+
+  - debug:
+      msg: "Checksum Failed: {{item.stat.path}}"
+    when: item.stat.checksum != item.item.checksum.split()[0]
+    loop: "{{stat_output.results}}"
+    loop_control:
+      label: "{{item.stat.path}}"

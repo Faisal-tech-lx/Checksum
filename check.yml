@@ -1,0 +1,26 @@
+---
+- name: Run Checksum Playbook
+  hosts: localhost
+#  become: yes
+  vars_files:
+    - file.yml
+  tasks:
+  - name: Run Play checksum
+    stat:
+      path: "{{item.name}}"
+    loop: "{{files}}"
+    register: share
+
+  - debug:
+      msg: "Checksum is PASS: {{item.stat.path}}"
+    when: item.stat.checksum == item.item.checksum.split()[0]
+    loop: "{{share.results}}"
+    loop_control:
+      label: "{{item.stat.path}}"
+  
+  - debug:
+      msg: "Checksum is FAILED: {{item.stat.path}}"
+    when: item.stat.checksum != item.item.checksum.split()[0]
+    loop: "{{share.results}}"
+    loop_control:
+      label: "{{item.stat.path}}"
